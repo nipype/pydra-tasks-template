@@ -27,9 +27,12 @@ jobs:
 
   devcheck:
     runs-on: ubuntu-latest
+    needs: [pyrange]
     strategy:
       matrix:
-        python-version: [3.7, '3.10']  # Check oldest and newest versions
+        python-version:
+          - "${{ fromJson(needs.pyrange.outputs.pyrange)[0] }}"
+          - "${{ fromJson(needs.pyrange.outputs.pyrange)[-1] }}"
         pip-flags: ['', '--editable']
         pydra:
         - 'pydra'
