@@ -22,16 +22,16 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.7, 3.9]  # Check oldest and newest versions
+        python-version: [3.7, '3.10']  # Check oldest and newest versions
         pip-flags: ['', '--editable']
         pydra:
         - 'pydra'
         - '--editable git+https://github.com/nipype/pydra.git#egg=pydra'
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v4
       with:
         python-version: ${{ matrix.python-version }}
     - name: Install build dependencies
@@ -51,12 +51,12 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.7, 3.8, 3.9]
+        python-version: [3.7, 3.8, 3.9, '3.10']
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v4
       with:
         python-version: ${{ matrix.python-version }}
     - name: Install build dependencies
@@ -71,7 +71,7 @@ jobs:
       run: |
         pytest -sv --doctest-modules pydra/tasks/$SUBPACKAGE \
             --cov pydra.tasks.$SUBPACKAGE --cov-report xml
-    - uses: codecov/codecov-action@v1
+    - uses: codecov/codecov-action@v3
       if: ${{ always() }}
 
 
@@ -82,12 +82,12 @@ jobs:
       matrix:
         python-version: [3.9]
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
       with:
         submodules: recursive
         fetch-depth: 0
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v4
       with:
         python-version: ${{ matrix.python-version }}
     - name: Install build tools
@@ -96,7 +96,7 @@ jobs:
       run: python -m build
     - name: Check distributions
       run: twine check dist/*
-    - uses: actions/upload-artifact@v2
+    - uses: actions/upload-artifact@v3
       with:
         name: distributions
         path: dist/
