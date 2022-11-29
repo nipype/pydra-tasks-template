@@ -18,6 +18,13 @@ on:
     branches: [ main ]
 
 jobs:
+  pyrange:
+    runs-on: ubuntu-latest
+    outputs:
+      pyrange: '["3.7", "3.8", "3.9", "3.10"]'
+    steps:
+      - run: "true"
+
   devcheck:
     runs-on: ubuntu-latest
     strategy:
@@ -49,9 +56,10 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
+    needs: [pyrange]
     strategy:
       matrix:
-        python-version: [3.7, 3.8, 3.9, '3.10']
+        python-version: ${{ fromJson(needs.pyrange.outputs.pyrange) }}
 
     steps:
     - uses: actions/checkout@v3
