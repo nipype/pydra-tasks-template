@@ -24,14 +24,14 @@ All tasks will be inserted into the `pydra.tasks.<yourtaskpackagename>` namespac
 
 # Features of this template
 
-## Versioneer
+## Tag-based versioning
 
-The [versioneer](https://github.com/warner/python-versioneer) tool allows for versioning based
+The [setuptools_scm](https://github.com/pypa/setuptools_scm) tool allows for versioning based
 on the most recent git tag. The release process can thus be:
 
 ```Shell
 git tag -a 1.0.0
-python setup.py sdist bdist_wheel
+python -m build
 twine upload dist/*
 ```
 
@@ -39,7 +39,7 @@ Note that uploading to PyPI is done via [Continuous integration](#continuous-int
 a tag is pushed to the repository, so only the first step needs to be donne manually.
 
 Note also that we assume tags will be version numbers and not be prefixed with `v` or some other
-string. See Versioneer documentation for alternative configurations.
+string. See `setuptools_scm` documentation for alternative configurations.
 
 ## Namespace packages
 
@@ -92,7 +92,7 @@ task packages.
 ## For developers
 
 Install repo in developer mode from the source directory. It is also useful to
-install pre-commit to take care of styling via black:
+install pre-commit to take care of styling via [black](https://black.readthedocs.io/):
 
 ```
 pip install -e .[dev]
