@@ -3,7 +3,7 @@ This is a basic doctest demonstrating that the package and pydra can both be suc
 imported.
 
 >>> import pydra.engine
->>> import pydra.tasks.TODO
+>>> import pydra.tasks.CHANGEME
 """
 try:
     from ._version import __version__
