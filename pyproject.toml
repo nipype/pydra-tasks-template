@@ -1,13 +1,13 @@
 [build-system]
-requires = ["flit_scm"]
-build-backend = "flit_scm:buildapi"
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
 
 [project]
-name = "pydra-tasks-TODO"
-description = "Description for pydra-tasks-TODO"
+name = "pydra-tasks-CHANGEME"
+description = "Pydra tasks package for CHANGEME"
 readme = "README.md"
-requires-python = ">=3.7"
-dependencies = ["pydra >=0.20"]
+requires-python = ">=3.8"
+dependencies = ["pydra >=0.22"]
 license = {file = "LICENSE"}
 authors = [{name = "Nipype developers", email = "neuroimaging@python.org"}]
 maintainers = [{name = "Nipype developers", email = "neuroimaging@python.org"}]
@@ -46,16 +46,28 @@ test = [
     "codecov",
 ]
 
-[tool.flit.module]
-name = "pydra.tasks.TODO"
+[tool.hatch.version]
+source = "vcs"
 
-[tool.flit.sdist]
-exclude = [".gitignore"]
+[tool.hatch.build.hooks.vcs]
+version-file = "pydra/tasks/CHANGEME/_version.py"
 
-[tool.setuptools_scm]
-write_to = "pydra/tasks/TODO/_version.py"
+[tool.hatch.build.targets.wheel]
+packages = ["pydra"]
+include-only = ["pydra/tasks/CHANGEME"]
 
 [tool.black]
-line-length = 99
-target-version = ["py37"]
+target-version = ["py38"]
 exclude = "_version.py"
+
+[tool.codespell]
+ignore-words = ".codespell-ignorewords"
+
+[tool.flake8]
+doctests = true
+per-file-ignores = [
+    "__init__.py:F401"
+]
+max-line-length = 88
+select = "C,E,F,W,B,B950"
+extend-ignore = ['E203', 'E501', 'E129', 'W503']
