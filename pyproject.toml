@@ -66,7 +66,7 @@ ignore-words = ".codespell-ignorewords"
 [tool.flake8]
 doctests = true
 per-file-ignores = [
-    "__init__.py:F401"
+    "__init__.py:F401,F403"
 ]
 max-line-length = 88
 select = "C,E,F,W,B,B950"

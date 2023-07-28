@@ -12,9 +12,14 @@ All tasks will be inserted into the `pydra.tasks.<yourtaskpackagename>` namespac
    replace with appropriate name.
 1. One of the folders is called CHANGEME. This should also be renamed to your package
    name.
-1. Add tasks to the `pydra/tasks/<yourpackagename>` folder.
-1. An example subpackage is found in `pydra/tasks/<yourpackagename>/utils`.
-   You may wish to add tools to it or delete it.
+1. Under the newly renamed package (i.e. formerly CHANGME) there is a directory named "v1",
+   `pydra/tasks/<package-name>/v1`, change this to valid Python package name starting with
+   'v' to indicate the version of the tool the Pydra interfaces will be designed for,
+   e.g. FSL v6.0.2 could be `pydra/tasks/fsl/v6` or `pydra/tasks/fsl/v6_0` depending on
+   how stable the CLI of the tool is between minor versions.
+1. Edit `pydra/tasks/<package-name>/latest`, change the line `from .v1 import *` to refer
+   to the `v<package-version>` module, e.g. `from .v6 import *`
+1. Add tasks to the `pydra/tasks/<package-name>/v<package-version>` folder.
 1. You may want to initialize a [Sphinx] docs directory.
 1. Review the workflow in `.github/workflows/pythonpackage.yml`. Testing editable installations
    is probably not useful unless you are reconfiguring namespace packages.
