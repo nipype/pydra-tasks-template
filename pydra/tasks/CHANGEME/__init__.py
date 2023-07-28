@@ -8,4 +8,7 @@ imported.
 try:
     from ._version import __version__
 except ImportError:
-    pass
+    raise RuntimeError(
+        "Pydra package 'CHANGEME' has not been installed, please use "
+        "`pip install -e <path-to-repo>` to install development version"
+    )
