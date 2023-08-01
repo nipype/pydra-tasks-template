@@ -12,7 +12,7 @@ All tasks will be inserted into the `pydra.tasks.<yourtaskpackagename>` namespac
    replace with appropriate name.
 1. One of the folders is called CHANGEME. This should also be renamed to your package
    name.
-1. Under the newly renamed package (i.e. formerly CHANGME) there is a directory named "v1",
+1. Under the newly renamed package (i.e. formerly CHANGEME) there is a directory named "v1",
    `pydra/tasks/<package-name>/v1`, change this to valid Python package name starting with
    'v' to indicate the version of the tool the Pydra interfaces will be designed for,
    e.g. FSL v6.0.2 could be `pydra/tasks/fsl/v6` or `pydra/tasks/fsl/v6_0` depending on
