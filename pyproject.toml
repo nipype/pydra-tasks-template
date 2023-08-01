@@ -48,6 +48,8 @@ test = [
     "pytest-xdist",
     "pytest-rerunfailures",
     "codecov",
+    "fileformats-extras",
+    "fileformats-medimage-extras",
 ]
 
 [tool.hatch.version]
