@@ -49,6 +49,7 @@ test = [
     "pytest-rerunfailures",
     "codecov",
     "fileformats-extras",
+    "fileformats-datascience-extras",
     "fileformats-medimage-extras",
 ]
 
