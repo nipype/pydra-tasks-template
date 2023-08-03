@@ -6,10 +6,6 @@
 
 name: Python package
 
-# Set once
-env:
-  SUBPACKAGE: CHANGEME
-
 on:
   push:
     branches: [ main ]
@@ -44,7 +40,7 @@ jobs:
     - name: Install task package
       run: |
         pip install ${{ matrix.pip-flags }} ".[dev]"
-        python -c "import pydra.tasks.$SUBPACKAGE as m; print(f'{m.__name__} {m.__version__} @ {m.__file__}')"
+        python -c "import pydra.tasks.CHANGEME as m; print(f'{m.__name__} {m.__version__} @ {m.__file__}')"
         python -c "import pydra as m; print(f'{m.__name__} {m.__version__} @ {m.__file__}')"
 
   test:
@@ -65,12 +61,12 @@ jobs:
     - name: Install task package
       run: |
         pip install ".[test]"
-        python -c "import pydra.tasks.$SUBPACKAGE as m; print(f'{m.__name__} {m.__version__} @ {m.__file__}')"
+        python -c "import pydra.tasks.CHANGEME as m; print(f'{m.__name__} {m.__version__} @ {m.__file__}')"
         python -c "import pydra as m; print(f'{m.__name__} {m.__version__} @ {m.__file__}')"
     - name: Test with pytest
       run: |
-        pytest -sv --doctest-modules pydra/tasks/$SUBPACKAGE \
-            --cov pydra.tasks.$SUBPACKAGE --cov-report xml
+        pytest -sv --doctest-modules pydra/tasks/CHANGEME \
+            --cov pydra.tasks.CHANGEME --cov-report xml
     - uses: codecov/codecov-action@v3
       if: ${{ always() }}
 
