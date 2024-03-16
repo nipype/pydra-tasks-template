@@ -10,8 +10,10 @@ All tasks will be inserted into the `pydra.tasks.<yourtaskpackagename>` namespac
 1. Give your repo a name.
 1. Once the repo is created and cloned, search for CHANGEME (`grep -rn CHANGEME . `) and
    replace with appropriate name.
-1. One of the folders is called CHANGEME. This should also be renamed to your package
-   name.
+1. Rename the following folders to replace `CHANGEME` with the name of the package:
+   * `src/pydra/tasks/CHANGEME`
+   * `fileformats/fileformats/medimage_CHANGEME`
+   * `fileformats/fileformats/extras/medimage_CHANGEME`
 1. Under the newly renamed package (i.e. formerly CHANGEME) there is a directory named "v1",
    `src/pydra/tasks/<package-name>/v1`, change this to valid Python package name starting with
    'v' to indicate the version of the tool the Pydra interfaces will be designed for,
