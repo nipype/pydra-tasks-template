@@ -8,33 +8,43 @@ All tasks will be inserted into the `pydra.tasks.<yourtaskpackagename>` namespac
 1. Click on new repo.
 1. Select this template from the repository template drop down list.
 1. Give your repo a name.
-1. Once the repo is created and cloned, search for TODO (`grep -rn TODO . `) and
+1. Once the repo is created and cloned, search for CHANGEME (`grep -rn CHANGEME . `) and
    replace with appropriate name.
-1. One of the folders is called TODO. This should also be renamed to your package
+1. One of the folders is called CHANGEME. This should also be renamed to your package
    name.
-1. Add tasks to the `pydra/tasks/<yourpackagename>` folder.
-1. An example subpackage is found in `pydra/tasks/<yourpackagename>/utils`.
-   You may wish to add tools to it or delete it.
+1. Under the newly renamed package (i.e. formerly CHANGEME) there is a directory named "v1",
+   `pydra/tasks/<package-name>/v1`, change this to valid Python package name starting with
+   'v' to indicate the version of the tool the Pydra interfaces will be designed for,
+   e.g. FSL v6.0.2 could be `pydra/tasks/fsl/v6` or `pydra/tasks/fsl/v6_0` depending on
+   how stable the CLI of the tool is between minor versions.
+1. Edit `pydra/tasks/<package-name>/latest.py` to update references to `v1` to the
+   tool target version
+1. Add tasks to the `pydra/tasks/<package-name>/v<package-version>` folder.
 1. You may want to initialize a [Sphinx] docs directory.
+1. Review the workflow in `.github/workflows/pythonpackage.yml`. Testing editable installations
+   is probably not useful unless you are reconfiguring namespace packages.
 1. **Update this README after creating the new repository.**
 
 [Sphinx]: https://www.sphinx-doc.org/en/master/usage/quickstart.html
 
 # Features of this template
 
-## Versioneer
+## Tag-based versioning
 
-The [versioneer](https://github.com/warner/python-versioneer) tool allows for versioning based
+The [setuptools_scm](https://github.com/pypa/setuptools_scm) tool allows for versioning based
 on the most recent git tag. The release process can thus be:
 
 ```Shell
 git tag -a 1.0.0
-python setup.py sdist bdist_wheel
+python -m build
 twine upload dist/*
 ```
 
-Note that we assume tags will be version numbers and not be prefixed with `v` or some other
-string. See Versioneer documentation for alternative configurations.
+Note that uploading to PyPI is done via [Continuous integration](#continuous-integration)) when
+a tag is pushed to the repository, so only the first step needs to be donne manually.
+
+Note also that we assume tags will be version numbers and not be prefixed with `v` or some other
+string. See `setuptools_scm` documentation for alternative configurations.
 
 ## Namespace packages
 
@@ -70,6 +80,10 @@ non-compliant package can potentially affect Pydra or other task packages.
 In addition to verifying installations do not break or conflict, pytest is run on the package,
 including all tests found in `test/` directories and [doctests].
 
+Finally, packages are built and uploaded as artifacts for inspection. When a tag is pushed,
+the packages are uploaded to PyPI if a valid [API token](https://pypi.org/help/#apitoken) is placed
+in the [repository secrets](https://docs.github.com/en/actions/reference/encrypted-secrets).
+
 [doctests]: https://docs.python.org/3/library/doctest.html
 
 # Contributing to this template
@@ -83,7 +97,7 @@ task packages.
 ## For developers
 
 Install repo in developer mode from the source directory. It is also useful to
-install pre-commit to take care of styling via black:
+install pre-commit to take care of styling via [black](https://black.readthedocs.io/):
 
 ```
 pip install -e .[dev]

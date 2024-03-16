@@ -133,3 +133,9 @@ dmypy.json
 
 # Vim
 .*.sw[op]
+
+# VS Code
+.vscode
+
+# Mac garbarge
+.DS_store
