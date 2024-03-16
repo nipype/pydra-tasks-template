@@ -8,17 +8,19 @@ from pathlib import Path
 
 PACKAGE_ROOT = Path(__file__).absolute().parent.parent
 
+
 @functools.lru_cache()
 def load_gitignore(repo):
-    gitignore = repo / '.gitignore'
+    gitignore = repo / ".gitignore"
     ignore = [fnmatch.translate(".git/"), fnmatch.translate(Path(__file__).name)]
     if gitignore.exists():
         ignore.extend(
             fnmatch.translate(line.strip())
             for line in gitignore.read_text().splitlines()
-            if line.strip() and not line[0] == '#'
+            if line.strip() and not line[0] == "#"
         )
-    return re.compile('|'.join(ignore))
+    return re.compile("|".join(ignore))
+
 
 cmd, new_name, *_ = sys.argv
 
@@ -31,8 +33,8 @@ for root, dirs, files in os.walk(PACKAGE_ROOT):
 
     root = Path(root)
     for src in list(dirs):
-        if 'TODO' in src:
-            dst = src.replace("TODO", new_name)
+        if "CHANGEME" in src:
+            dst = src.replace("CHANGEME", new_name)
             print(f"Renaming: {root / src} ->  {root / dst}")
             os.rename(root / src, root / dst)
             dirs.remove(src)
@@ -40,6 +42,6 @@ for root, dirs, files in os.walk(PACKAGE_ROOT):
     for fname in files:
         f = root / fname
         text = Path.read_text(root / fname)
-        if 'TODO' in text:
+        if "CHANGEME" in text:
             print(f"Rewriting: {root / fname}")
-            Path.write_text(root / fname, text.replace("TODO", new_name))
+            Path.write_text(root / fname, text.replace("CHANGEME", new_name))
