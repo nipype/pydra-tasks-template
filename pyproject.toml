@@ -60,11 +60,11 @@ test = [
 source = "vcs"
 
 [tool.hatch.build.hooks.vcs]
-version-file = "src/pydra/tasks/CHANGEME/_version.py"
+version-file = "pydra/tasks/CHANGEME/_version.py"
 
 [tool.hatch.build.targets.wheel]
 packages = ["pydra"]
-include-only = ["src/pydra/tasks/CHANGEME"]
+include-only = ["pydra/tasks/CHANGEME"]
 
 [tool.black]
 target-version = ["py38"]

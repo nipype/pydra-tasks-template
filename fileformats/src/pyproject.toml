@@ -5,13 +5,13 @@ build-backend = "hatchling.build"
 [project]
 name = "fileformats-medimage-CHANGEME"
 description = "Classes for representing different file formats in Python classes for use in type hinting in data workflows"
-readme = "../README.rst"
+readme = "README.rst"
 requires-python = ">=3.8"
 dependencies = [
     "fileformats >= 0.4",
     "fileformats-medimage > = 0.2"
 ]
-license = {file = "../LICENSE"}
+license = {file = "LICENSE"}
 authors = [
     {name = "Thomas G. Close", email = "tom.g.close@gmail.com"},
 ]
@@ -59,7 +59,7 @@ repository = "https://github.com/nipype/pydra-CHANGEME"
 
 [tool.hatch.version]
 source = "vcs"
-raw-options = { root = ".." }
+raw-options = { root = "../.." }
 
 [tool.hatch.build.hooks.vcs]
 version-file = "fileformats/medimage_CHANGEME/_version.py"
