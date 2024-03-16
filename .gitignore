@@ -131,6 +131,9 @@ dmypy.json
 # Pycharm
 .idea
 
+# Vim
+.*.sw[op]
+
 # VS Code
 .vscode
 
