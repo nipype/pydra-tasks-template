@@ -33,8 +33,8 @@ for root, dirs, files in os.walk(PACKAGE_ROOT):
 
     root = Path(root)
     for src in list(dirs):
-        if "TODO" in src:
-            dst = src.replace("TODO", new_name)
+        if "CHANGEME" in src:
+            dst = src.replace("CHANGEME", new_name)
             print(f"Renaming: {root / src} ->  {root / dst}")
             os.rename(root / src, root / dst)
             dirs.remove(src)
@@ -42,6 +42,6 @@ for root, dirs, files in os.walk(PACKAGE_ROOT):
     for fname in files:
         f = root / fname
         text = Path.read_text(root / fname)
-        if "TODO" in text:
+        if "CHANGEME" in text:
             print(f"Rewriting: {root / fname}")
-            Path.write_text(root / fname, text.replace("TODO", new_name))
+            Path.write_text(root / fname, text.replace("CHANGEME", new_name))
