@@ -3,14 +3,13 @@ requires = ["hatchling", "hatch-vcs"]
 build-backend = "hatchling.build"
 
 [project]
-name = "fileformats-medimage-CHANGEME-extras"
-description = "Extensions to add functionality to tool-specific *fileformats* classes"
+name = "fileformats-medimage-CHANGEME"
+description = "Classes for representing different file formats in Python classes for use in type hinting in data workflows"
 readme = "README.rst"
 requires-python = ">=3.8"
 dependencies = [
-    "fileformats >= 0.7",
-    "fileformats-medimage-CHANGEME",
-    "pydra >= 0.22.0"
+    "fileformats",
+    "fileformats-medimage"
 ]
 license = {file = "LICENSE"}
 authors = [
@@ -52,9 +51,7 @@ test = [
     "pytest-env>=0.6.2",
     "pytest-cov>=2.12.1",
     "codecov",
-]
-
-converters = [
+    "fileformats-medimage-CHANGME-extras",
 ]
 
 [project.urls]
@@ -65,14 +62,14 @@ source = "vcs"
 raw-options = { root = "../.." }
 
 [tool.hatch.build.hooks.vcs]
-version-file = "fileformats/extras/medimage_CHANGEME/_version.py"
+version-file = "fileformats/medimage_CHANGEME/_version.py"
 
 [tool.hatch.build.targets.wheel]
 packages = ["fileformats"]
 
 [tool.black]
 target-version = ['py38']
-exclude = "fileformats/extras/medimage_CHANGEME/_version.py"
+exclude = "fileformats/medimage_CHANGEME/_version.py"
 
 [tool.codespell]
 ignore-words = ".codespell-ignorewords"

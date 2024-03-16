@@ -1,7 +1,7 @@
 How to customise this template
 ==============================
 
-#. Rename the `fileformats/src/CHANGEME` directory to the name of the fileformats subpackage (e.g. `medimage_fsl`)
+#. Rename the `related-packages/fileformats/CHANGEME` directory to the name of the fileformats subpackage (e.g. `medimage_fsl`)
 #. Search and replace "CHANGEME" with the name of the fileformats subpackage the extras are to be added
 #. Replace name + email placeholders in `pyproject.toml` for developers and maintainers
 #. Add the extension file-format classes
