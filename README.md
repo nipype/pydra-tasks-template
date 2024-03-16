@@ -10,10 +10,15 @@ All tasks will be inserted into the `pydra.tasks.<yourtaskpackagename>` namespac
 1. Give your repo a name.
 1. Once the repo is created and cloned, search for CHANGEME (`grep -rn CHANGEME . `) and
    replace with appropriate name.
-1. Rename the following folders to replace `CHANGEME` with the name of the package:
+1. Rename the namespace package root directory to replace `CHANGEME` with the name of the package:
    * `src/pydra/tasks/CHANGEME`
-   * `fileformats/fileformats/medimage_CHANGEME`
-   * `fileformats/fileformats/extras/medimage_CHANGEME`
+1. If you are planning to define [fileformats](https://arcanaframework.github.io/fileformats/) classes specific
+   to the tools defined in the task package, then rename the base and "extras" packages using a
+   matching name to the package (if the tool is from in another field other than medical imaging,
+   also replace the `medimage` part). If you don't need to define and tool-specific fileformats you can delete
+   these packages and the .github/workflows/fileformats-ci-cd.yaml
+   * `related-packages/fileformats/fileformats/medimage_CHANGEME`
+   * `related-packages/fileformats-extras/fileformats/extras/medimage_CHANGEME`
 1. Under the newly renamed package (i.e. formerly CHANGEME) there is a directory named "v1",
    `src/pydra/tasks/<package-name>/v1`, change this to valid Python package name starting with
    'v' to indicate the version of the tool the Pydra interfaces will be designed for,
