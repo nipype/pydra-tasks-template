@@ -42,7 +42,7 @@ python -m build
 twine upload dist/*
 ```
 
-Note that uploading to PyPI is done via [Continuous integration](#continuous-integration)) when
+Note that uploading to PyPI is done via [Continuous integration](#continuous-integration) when
 a tag is pushed to the repository, so only the first step needs to be donne manually.
 
 Note also that we assume tags will be version numbers and not be prefixed with `v` or some other
