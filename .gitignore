@@ -10,7 +10,6 @@ __pycache__/
 .Python
 build/
 develop-eggs/
-_version.py
 dist/
 downloads/
 eggs/
@@ -140,3 +139,8 @@ dmypy.json
 
 # Mac garbarge
 .DS_store
+
+# Generated files
+/pydra/tasks/CHANGEME/_version.py
+/related-packages/fileformats/fileformats/medimage_CHANGEME/_version.py
+/related-packages/fileformats-extras/fileformats/extras/medimage_CHANGEME/_version.py
