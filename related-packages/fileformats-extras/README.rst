@@ -1,12 +1,14 @@
-FileFormats-CHANGEME Extras
-======================================
+FileFormats-medimage-CHANGEME Extras
+====================================
+
 .. image:: https://github.com/nipype/pydra-freesurfer/actions/workflows/ci-cd.yaml/badge.svg
     :target: https://github.com/nipype/pydra-freesurfer/actions/workflows/ci-cd.yaml
 
 
-This is a extras module for the `fileformats-CHANGEME <https://github.com/nipype/pydra-freesurfer/>`__
+This is a extras module for the `fileformats-medimage-CHANGEME <https://github.com/nipype/pydra-CHANGEME/>`__
 fileformats extension package, which provides additional functionality to format classes (i.e. aside
-from basic identification and validation), such as conversion tools, metadata parsers, test data generators, etc...
+from basic identification and validation), such as conversion tools, metadata parsers,
+sample data generators, etc...
 
 
 Quick Installation
@@ -14,9 +16,10 @@ Quick Installation
 
 This extension can be installed for Python 3 using *pip*::
 
-    $ pip3 install fileformats-CHANGEME-extras
+    $ pip3 install fileformats-medimage-CHANGEME-extras
 
-This will install the core package and any other dependencies
+This will install the package, base packages, and any other dependencies required to
+implement the extra functionality.
 
 License
 -------

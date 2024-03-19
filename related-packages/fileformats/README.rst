@@ -1,22 +1,11 @@
-How to customise this template
-==============================
+FileFormats-medimage-CHANGEME
+=============================
 
-#. Rename the `related-packages/fileformats/CHANGEME` directory to the name of the fileformats subpackage (e.g. `medimage_fsl`)
-#. Search and replace "CHANGEME" with the name of the fileformats subpackage the extras are to be added
-#. Replace name + email placeholders in `pyproject.toml` for developers and maintainers
-#. Add the extension file-format classes
-#. Ensure that all the extension file-format classes are imported into the extras package root, i.e. `fileformats/CHANGEME`
-#. Delete these instructions
-
-...
-
-FileFormats Extension - CHANGEME
-====================================
 .. image:: https://github.com/nipype/pydra-CHANGEME/actions/workflows/ci-cd.yml/badge.svg
     :target: https://github.com/nipype/pydra-CHANGEME/actions/workflows/ci-cd.yml
 
-This is the "CHANGEME" extension module for the
-`fileformats <https://github.com/ArcanaFramework/fileformats-core>`__ package
+This is an extension module of the `fileformats <https://github.com/ArcanaFramework/fileformats>`__
+package for defining file formats that are specific to the CHANGME software toolkit.
 
 
 Quick Installation
@@ -24,9 +13,9 @@ Quick Installation
 
 This extension can be installed for Python 3 using *pip*::
 
-    $ pip3 install fileformats-CHANGEME
+    $ pip3 install fileformats-medimage-CHANGEME
 
-This will install the core package and any other dependencies
+This will install the format extensions and dependent base packages.
 
 License
 -------
