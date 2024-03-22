@@ -24,14 +24,14 @@ def load_gitignore(repo):
 
 cmd, new_name, *_ = sys.argv
 
-for root, dirs, files in os.walk(PACKAGE_ROOT):
+for root_, dirs, files in os.walk(PACKAGE_ROOT):
     ignore = load_gitignore(PACKAGE_ROOT).search
     for d in [d for d in dirs if ignore(f"{d}/")]:
         dirs.remove(d)
     for f in [f for f in files if ignore(f)]:
         files.remove(f)
 
-    root = Path(root)
+    root = Path(root_)
     for src in list(dirs):
         if "CHANGEME" in src:
             dst = src.replace("CHANGEME", new_name)
@@ -40,7 +40,6 @@ for root, dirs, files in os.walk(PACKAGE_ROOT):
             dirs.remove(src)
             dirs.append(dst)
     for fname in files:
-        f = root / fname
         text = Path.read_text(root / fname)
         if "CHANGEME" in text:
             print(f"Rewriting: {root / fname}")
