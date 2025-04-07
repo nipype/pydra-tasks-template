@@ -3,13 +3,13 @@ requires = ["hatchling", "hatch-vcs"]
 build-backend = "hatchling.build"
 
 [project]
-name = "pydra-CHANGEME"
+name = "pydra-tasks-CHANGEME"
 description = "Pydra tasks package for CHANGEME"
 readme = "README.md"
 requires-python = ">=3.8"
 dependencies = [
-    "pydra >=0.22",
-    "fileformats >=0.8.3",
+    "pydra >=1.0a",
+    "fileformats >=0.15.0",
     "fileformats-datascience >=0.1",
     "fileformats-medimage >=0.4.1",
     "fileformats-medimage-CHANGEME"

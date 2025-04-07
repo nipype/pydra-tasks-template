@@ -17,7 +17,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = "pydra-CHANGEME"
+project = "pydra-tasks-CHANGEME"
 copyright = "2020, Xihe Xie"
 author = "Xihe Xie"
 
